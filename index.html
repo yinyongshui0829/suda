@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>苏州大学独墅湖校区 · 三维沙盘</title>
+<meta name="description" content="依据南区、北区平面俯视图构建的苏州大学独墅湖校区三维沙盘，可自由旋转、缩放和平移。">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="sky"><div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div></div>
+<div id="view" aria-label="可自由拖动查看的校园三维沙盘"></div>
+<div id="pins"></div>
+
+<aside id="psyPanel" class="panel">
+  <div class="ph">
+    <div>
+      <div class="peyebrow">校内心理资源地图</div>
+      <div class="pname">搜索 · 定位 · 求助指引</div>
+    </div>
+    <span class="pcount">3 处</span>
+  </div>
+  <input id="psySearch" type="text" placeholder="搜索关键词：咨询 / 运动 / 借阅…" autocomplete="off">
+  <div id="psyCats">
+    <button class="chip on" data-cat="all">全部</button>
+    <button class="chip" data-cat="阅读资源">阅读资源</button>
+    <button class="chip" data-cat="活动减压">活动减压</button>
+    <button class="chip" data-cat="咨询支持">咨询支持</button>
+  </div>
+  <div id="psyList"></div>
+  <div id="psyEmpty">没有匹配的资源，换个关键词试试。</div>
+  <div class="pfoot">点击列表或沙盘浮标 → 建筑高亮并定位</div>
+</aside>
+
+<div id="psyPop" class="panel">
+  <button id="popClose" aria-label="关闭">×</button>
+  <div class="pcatrow"><span id="popCat"></span></div>
+  <h2 id="popName"></h2>
+  <div class="prow"><span class="k">所在校区 / 楼栋</span><span id="popWhere" class="v"></span></div>
+  <div class="pnote" id="popNote"></div>
+  <div class="prow"><span class="k">沙盘建筑对应</span><span id="popMap" class="v"></span></div>
+  <div class="prow"><span class="k">服务类型</span><span id="popCat2" class="v"></span></div>
+  <div class="prow"><span class="k">备注 / 开放</span><span id="popHours" class="v"></span></div>
+  <div class="ptags" id="popTags"></div>
+</div>
+
+<header id="title" class="panel">
+  <div class="eyebrow">苏州大学 · 独墅湖校区</div>
+  <h1>校园三维沙盘</h1>
+  <p>北区（一期）与南区（二期） · 文景路相隔</p>
+  <div class="basis">依据所提供的南区、北区平面俯视图构建</div>
+</header>
+
+<div id="dock" class="panel" role="group" aria-label="沙盘视角">
+  <span class="cap">视角</span>
+  <button class="tbtn on" data-preset="all">全景</button>
+  <button class="tbtn" data-preset="north">北区</button>
+  <button class="tbtn" data-preset="south">南区</button>
+  <button class="tbtn" data-preset="top">正俯视</button>
+</div>
+
+<div id="hint"><b>左键拖动</b> 旋转　·　<b>滚轮</b> 缩放　·　<b>右键拖动</b> 平移</div>
+<div id="compass" class="panel"><span class="north">北</span><div id="compArw">↑</div><span class="south">南</span></div>
+<div id="note">自由沙盘 · 含心理资源索引</div>
+
+<div id="loading"><div class="box panel">
+  <div class="big">正在搭建校园沙盘</div>
+  <div class="subline">描绘建筑轮廓 · 校准水面与道路</div>
+  <div class="bar"><i></i></div>
+</div></div>
+<script src="vendor/three.min.js"></script>
+<script src="vendor/OrbitControls.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
